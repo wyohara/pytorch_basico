@@ -1,27 +1,26 @@
 # Instalado o Pytorch
-- Para instalar o Pytorch execute os comando:\
+- Para instalar o Pytorch execute os comando:
 ```python  
 pip3 install torch torchvision
 ```
-- Esse comando irá instalar o ***Pytorch*** e o ***torhvision***\
-	- torch é o framework principal do Pytorch\
-	- torchvision é framework de visão computacional\
+- Esse comando irá instalar o ***Pytorch*** e o ***torhvision***
+	- torch é o framework principal do Pytorch
+	- torchvision é framework de visão computacional
   
-- Para saber se  código funcionou execute:\
+- Para saber se  código funcionou execute:
 ```python  
 import torch
 x = torch.rand(5, 3)
 print(x)
 ```  
 - O resultado será um tensor de 3 colunas e 5 linhas com valores entre 0 e 1.
-
-
----  
+  
+  
 
 # Tensores  
-- Tensores para a computação podem ser entendidos como arrays multidimensionais de ordem *k*, onde k é o número de coordenadas para alcançar um valor.\ 
+- Tensores para a computação podem ser entendidos como arrays multidimensionais de ordem *k*, onde k é o número de coordenadas para alcançar um valor.
 	- *GOODFELLOW, I.; BENGIO, Y.; COURVILLE, A. Deep Learning. Cambridge: MIT Press, 2016. Capítulo 2 (Linear Algebra), Seção 2.1.*
-- Assim:\
+- Assim:
 	- **Escalar (k=0)**: um número propriamente dito.
 	- **Vetor (k=1)**: Uma lista linear com os números.
 	- **Matriz (k=2)**: Uma lista bidimensional com linha e coluna.
