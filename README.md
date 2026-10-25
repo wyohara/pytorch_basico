@@ -81,8 +81,7 @@ print(f"Tensor com valor 1: \n {ones_tensor} \n")
 print(f"Tensor com valor zero: \n {zeros_tensor}")
 ```  
 
-### Atributos do tensor
-- Sãos as características pricipais de um tensor:
+5. Sãos as características pricipais de um tensor:
 	 - Sua forma
 	 - Tipo de dados
 	 - Onde está armazenado
@@ -94,4 +93,123 @@ tensor = torch.rand(3,4)
 print(f"Forma do tensor: {tensor.shape}")
 print(f"Tipos do tensor tensor: {tensor.dtype}")
 print(f"Local de armazenamento: {tensor.device}")
+```
+
+### Operações com tensores  
+
+1. Unindo tensores  
+	- Usado  `python torch.cat()` para concatenar ao longo de uma das dimensões
+```pythons
+import torch
+
+tensor_1 = torch.ones(3,3)
+tensor_2 = torch.zeros(3,3)	
+
+#concatenando a primeira dimensão (linhas com dim=0)
+tensor_3 = torch.cat([tensor_1, tensor_2], dim=0)
+print (tensor_3)
+```  
+
+2. Multiplicando tensores  
+```python
+import torch
+
+t1 = torch.ones(3, 3)
+t2 = torch.ones(3, 3)
+
+# Multiplicação matricial usa @ ou t1.matmul(t2)
+t3 = t1@t2
+# * faz multiplicação escalar 1 elemento por elemento
+t4 = t1*t2
+print(f'Tensor t3: {t3}')
+print(f'Tensor t4: {t4}')
+
+# Criando t5 com mesmo formato que t1 com valores aleatórios
+t5 = torch.rand_like(t1)
+print (f'Tensor t5: {t5}')
+
+# multiplicando t1 pela sua transposta de t5 e salvando em t3
+torch.matmul(t1, t5.T, out=t3)
+
+print(f'Tensor t5 Transposta: {t5.T}')
+print(f'Tensor t3 reescrito: {t3}')
+```  
+
+2. Transformando tensor em um tipo nativo  
+```python
+import torch
+
+# Tensor inicial com vaários valores
+tensor = torch.tensor([1.0, 2.0, 3.0, 4.0])
+
+# Soma todos os elementos m um valor escalar, porém ainda é um Tensor
+soma = tensor.sum()
+print(soma)                  # tensor(10.)
+print(type(soma))            # <class 'torch.Tensor'>
+
+# Extrai o valor do tensor em um tipo Python nativo
+soma_item = soma.item()
+print(soma_item)             # 10.0
+print(type(soma_item))       # <class 'float'>
+```  
+
+3. Operações *inplace* (local)
+	- São operações onde há quebra do gradiente no Pythorch
+	- usa-se `_` ao lado do comando para executar o inplace
+	- Ao quebrar o gradiene não é possível ver o histórico de modific~]oes dificultado o *backward*
+	- Há um pequeno ganho em velocidade e memória com esse comando
+	- ***Não é recomendado usar esse método***  
+```python
+import torch
+
+t1 = torch.ones(3, 3)
+t2 = torch.ones(3, 3)
+
+t1.add_(t2) # soma t2 em t1 e guarda o resultado em t1
+
+t1.copy_(t2) # copia t2 para dentro de t1
+
+t1.t_() # transpõe t1 no próprio t1
+
+t1.mul_(2) # multiplica  t1 por 2 e salva em t1
+
+t1.zero_() # zera t1 e salva em t1
+
+# Não há inplace para multiplicação matricial então é preciso reatribuir
+t1 = t1@t2 
+```
+
+4. Convertendo para numpy  
+```python
+import torch
+import numpy as np
+
+#gerando a versão para numpy
+t = torch.ones(5)
+print(f"t: {type(t)}")
+n = t.numpy()
+print(f"n: {type(n)}")
+
+# O numpy.array usa a mesma memória do tensor, logo as alterações se refletem
+t.add_(1)
+print(f"t: {t}")
+print(f"n: {n}")
+
+# O mesmo se aplica a conversão de numpy em tensor
+n = np.ones(5)
+t = torch.from_numpy(n)
+np.add(n, 1, out=n)
+print(f"t: {t}")
+print(f"n: {n}")
+```  
+6. Usando o acelerador  
+	- Todos os comandos acima podem ser usados no acelerador o na cpu
+	- para usar no acelerador basta mover os tensores com `.to()`
+```python
+import torch
+
+tensor = torch.ones(5)
+# Movendo o tensor para o acelerador se ele existir
+if torch.accelerator.is_available():
+    tensor = tensor.to(torch.accelerator.current_accelerator())
 ```
