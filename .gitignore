@@ -1,0 +1,131 @@
+# ============================================
+# Python
+# ============================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# ============================================
+# Ambientes virtuais
+# ============================================
+.venv/
+venv/
+ENV/
+env/
+env.bak/
+venv.bak/
+.python-version
+
+# ============================================
+# PyInstaller
+# ============================================
+*.manifest
+*.spec
+
+# ============================================
+# Testes e cobertura
+# ============================================
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+.hypothesis/
+*.cover
+.cache
+nosetests.xml
+coverage.xml
+*.py,cover
+.coveragerc
+
+# ============================================
+# Jupyter Notebook
+# ============================================
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# ============================================
+# Ferramentas de tipagem e lint
+# ============================================
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.ruff_cache/
+.pytype/
+.pyre/
+
+# ============================================
+# Documentação
+# ============================================
+docs/_build/
+/site/
+.ipynb_checkpoints
+
+# ============================================
+# IDEs e editores
+# ============================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.spyderproject
+.spyproject
+.ropeproject
+
+# ============================================
+# Sistema operacional
+# ============================================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ============================================
+# Variáveis de ambiente e segredos
+# ============================================
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# ============================================
+# Logs e bancos de dados locais
+# ============================================
+*.log
+*.sqlite3
+*.db
+
+# ============================================
+# Machine Learning / Data Science
+# ============================================
+# Descomente conforme o uso no projeto
+# *.h5
+# *.pkl
+# *.pt
+# *.pth
+# *.onnx
+# data/
+# models/
+# mlruns/
+# wandb/
