@@ -1,5 +1,5 @@
 # Instalado o Pytorch
-- Para instalar o Pytorch execute os comando:  
+- Para instalar o Pytorch execute os comando:\
 ```python  
 pip3 install torch torchvision
 ```
@@ -12,9 +12,8 @@ pip3 install torch torchvision
 import torch
 x = torch.rand(5, 3)
 print(x)
-```
-	- O resultado será um tensor de 3 colunas e 5 linhas com valores entre 0 e 1  
-	
+```  
+- O resultado será um tensor de 3 colunas e 5 linhas com valores entre 0 e 1.\\
 ---  
 
 # Tensores  
