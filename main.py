@@ -1,7 +1,9 @@
 import torch
-import numpy as np
 
-data = [[1, 2],[3, 4]]
-np_array = np.array(data)
-tensor_np = torch.from_numpy(np_array)
-print (tensor_np)
+tensor = torch.rand(3,4)
+
+print(f"Forma do tensor: {tensor.shape}")
+print(f"Tipos do tensor tensor: {tensor.dtype}")
+print(f"Local de armazenamento: {tensor.device}")
+
+print(torch.accelerator.is_available())
